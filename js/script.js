@@ -8,6 +8,10 @@ Stampare su console le informazioni di nome, ruolo e la stringa della foto
 Stampare le stesse informazioni su DOM sottoforma di stringhe
 # BONUS 1:
 Trasformare la stringa foto in una immagine effettiva (le trovate in allegato)
+
+//azione 1 - rimuovo la proprieta' pic da ogni elemento nell array
+//azione 2 - trasformo pic in un url corretto
+
 # BONUS 2:
 Organizzare i singoli membri in card/schede e ispirarci alle grafiche in allegato
 Consigli del giorno:
@@ -34,80 +38,54 @@ const personalInformation = [{
     'name': 'Wayne Barnett',
     'job': 'Founder & CEO',
     'pic': 'wayne-barnett-founder-ceo.jpg',
-}, {
+},
+{
     'name': 'Angela Caroll',
     'job': 'Chief Editor',
     'pic': 'angela-caroll-chief-editor.jpg',
-}, {
+},
+{
     'name': 'Walter Gordon',
     'job': 'Office Manager',
     'pic': 'walter-gordon-office-manager.jpg',
-}, {
+},
+{
     'name': 'Angela Lopez',
     'job': 'Social Media Manager',
     'pic': 'angela-lopez-social-media-manager.jpg',
-}, {
+},
+{
     'name': 'Scott Estrada',
     'job': 'Developer',
     'pic': 'scott-estrada-developer.jpg',
-}, {
+},
+{
     'name': 'Barbara Ramos',
     'job': 'Graphic Designer',
     'pic': 'barbara-ramos-graphic-designer.jpg',
 },
 ];
 
+
+for (let i = 0; i < personalInformation.length; i++) {
+    const current = personalInformation[i];
+    current['pic'] = `/img/${current['pic']}`;
+}
+
 //STAMPO IN CONSOLE
 console.log(personalInformation)
 
 //CREO CICLO FOR PER STAMPARE IN PAGINA GLI ELEMENTI
 for (let i = 0; i < personalInformation.length; i++) {
-    const members = personalInformation[i];
-    // console.log(members)
-    info.innerHTML += `<li><strong>${members.name}</strong> <br> ${members.job} <br> ${members.pic}</li>`;
+    const current = personalInformation[i];
+    let container = document.createElement('div');
+    let listItem = document.createElement('li');
+    container.append(current.name);
+    container.append(current.job);
+    const teamImg1 = document.createElement('img');
+    teamImg1.src = current['pic'];
+    listItem.append(container);
+    listItem.append(teamImg1);
+    info.append(listItem);
 }
 
-
-//TEST 1
-// for (let i = 0; i < personalInformation.length; i++) {
-//     const teamImg1 = document.createElement('img');
-//     image = personalInformation[i];
-//     teamImg1.src = '/img/angela-caroll-chief-editor.jpg'
-//     // personalInformation[i].splice(2, (teamImg1))
-//     // info.appendChild(teamImg1);
-// }
-
-// //TEST 2 FUNZIONE CON CICLO FOR
-
-// function createImage() {
-//     for (let i = 0; i < 6; i++) {
-//         const teamImg = document.createElement('img');
-//     }
-// }
-
-
-// // IMG 1
-// const teamImg1 = document.createElement('img');
-// teamImg1.src = '/img/wayne-barnett-founder-ceo.jpg'
-// // img 2
-// const teamImg2 = document.createElement('img');
-// teamImg2.src = '/img/angela-caroll-chief-editor.jpg'
-// // img 3
-// const teamImg3 = document.createElement('img');
-// teamImg3.src = '/img/walter-gordon-office-manager.jpg'
-// // img 4
-// const teamImg4 = document.createElement('img');
-// teamImg4.src = '/img/angela-lopez-social-media-manager.jpg'
-// // img 5
-// const teamImg5 = document.createElement('img');
-// teamImg5.src = '/img/scott-estrada-developer.jpg'
-// // img 6
-// const teamImg6 = document.createElement('img');
-// teamImg6.src = '/img/barbara-ramos-graphic-designer.jpg'
-
-// // info.appendChild(teamImg1);
-
-// for (let key in personalInformation) {
-//     console.log(key + personalInformation[key])
-
-// }
