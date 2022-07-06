@@ -66,14 +66,14 @@ const personalInformation = [{
 },
 ];
 
+console.table(personalInformation)
 
 for (let i = 0; i < personalInformation.length; i++) {
     const current = personalInformation[i];
-    current['pic'] = `/img/${current['pic']}`;
+    current['pic'] = `./img/${current['pic']}`;
 }
 
 //STAMPO IN CONSOLE
-console.log(personalInformation)
 
 //CREO CICLO FOR PER STAMPARE IN PAGINA GLI ELEMENTI
 for (let i = 0; i < personalInformation.length; i++) {
